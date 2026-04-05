@@ -32,12 +32,15 @@ Pero si lo colocos bien tendra un mensaje de exito y se colocara en JTextArea pa
 ### III. Mediante archivos
 
 Aqui usted podra colocar un archivo solamente de tipo .txt porque es donde es mas facil colocarlo, por ejemplo tenemos este tipo de archivo y le ponemos de nombre Prueba y le pones numero de la forma n,m,b y asi sucesivamente.
+
 <img width="251" height="81" alt="image" src="https://github.com/user-attachments/assets/f9510f74-80cd-4090-b30c-37e52087246a" />
 
 Luego lo guardas y te vas a panel de control donde presion el boton de seleccioanr archivo que tendra un colo verde y se abrira una interfaz para escoger el archivo que se veria algo asi:
+
 <img width="500" height="359" alt="image" src="https://github.com/user-attachments/assets/e17f53cb-e03f-4516-9c9c-dafb8df71b74" />
 
 Ahora lo abres y se pondra en el JtextArea:
+
 <img width="400" height="170" alt="image" src="https://github.com/user-attachments/assets/e2ac6d0f-377e-4620-88c4-69733f173b48" />
 
 
