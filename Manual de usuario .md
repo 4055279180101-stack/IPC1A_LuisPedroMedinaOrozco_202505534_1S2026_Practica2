@@ -86,5 +86,19 @@ Cuando esta amarillo es que el arreglo se esta comparando con otro y cuando sea 
 
 <img width="556" height="273" alt="image" src="https://github.com/user-attachments/assets/33c42aad-8882-44a9-9a73-e039992da391" />
 
+Por ultimo cuando se haya terminado el arreglo se pondra en verde
+
+<img width="576" height="289" alt="image" src="https://github.com/user-attachments/assets/c6acb894-529e-42f9-a355-b756442dd0c3" />
+
+## 4. Estadisticas
+Aqui podras ver cuantos procesos realizo o realiza el programa de esta manera podras ver cual hace mas pasos que otros entre algoritmos, este numero se actualiza en tiempo real por lo que no tendras que esperar a que se termine el programa para verlos, comparaciones, intercambios y iteraciones(cuando el agloritmo completo una vuelta en el).
+
+<img width="367" height="156" alt="image" src="https://github.com/user-attachments/assets/f0f60ba6-9e6f-405a-b1d5-0675c028b006" />
+
+<img width="402" height="144" alt="image" src="https://github.com/user-attachments/assets/441eec15-10f6-4d50-a2c8-9b2c309b8f51" />
+
+<img width="406" height="147" alt="image" src="https://github.com/user-attachments/assets/f82cb25a-b6f0-4b93-99d4-fe76cbf8ed4a" />
+
+
 
 
