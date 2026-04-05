@@ -44,7 +44,8 @@ El método CargarTiempo() recibe el momento en que empezó y terminó el algorit
 
 El método CargarParticion() es parecido a CargarArea() pero especificamente para el Quick Sort: registra en el log el número de partición, qué parte del arreglo se está procesando y cuáles son los valores en esas posiciones.
 
-[Captura aquí]
+[Captura <img width="346" height="49" alt="Prueba" src="https://github.com/user-attachments/assets/99dfabd5-83dc-4a1d-867d-6caa9ce217db" />
+aquí]
 
 ---
 
