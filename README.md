@@ -1,144 +1,145 @@
-# Práctica 2 — Visualizador de Algoritmos de Ordenamiento
+# Práctica 2 — Programa que muestra cómo se ordenan números
 
 **Lenguaje:** Java | **IDE:** Apache NetBeans | **Paquete base:** `practica.pkg2`
 
 ---
 
-## 1. Estructura del Proyecto
+## 1. Como esta organizado el proyecto
 
-El proyecto se organiza dentro de la carpeta `Practica 2/src/practica/pkg2/`. La clase principal es `Practica2.java`, que contiene el método `main` y las variables globales. La interfaz gráfica se gestiona desde `MenuPrincipal.java`, que hace uso de JFreeChart para las visualizaciones. La ventana auxiliar `ArregloAlea.java` permite generar arreglos aleatorios, mientras que `Archivos.java` se encarga del manejo de reportes e historial en formato HTML. La clase `Constructor_historial.java` actúa como modelo de datos para el historial. Los algoritmos de ordenamiento se encuentran en el subpaquete `Algoritmos/`, con archivos independientes para `Bubble_sort.java`, `Shell_sort.java` y `Quick_sort.java`.
-
----
-
-## 2. Librerías Implementadas
-
-Para la construcción de la interfaz gráfica se utilizó **Java Swing**, que provee todos los componentes visuales como ventanas, botones, comboboxes y áreas de texto. La visualización animada del arreglo se logra con **JFreeChart**, que genera las gráficas de barras y permite actualizarlas en tiempo real mediante un `BarRenderer` personalizado.
-
-Para obtener información del hardware del sistema (modelo de procesador, frecuencia de reloj, memoria RAM) se integró **OSHI**, la cual depende internamente de **JNA** y **JNA Platform** para acceder a recursos nativos del sistema operativo de forma multiplataforma.
-
-El registro de eventos durante la ejecución se maneja a través de **SLF4J**, usando su implementación simple para capturar errores en los hilos de los algoritmos. Finalmente, las clases del paquete estándar `java.io` (`BufferedReader`, `BufferedWriter`, `FileWriter`, `FileReader`) se emplean para la lectura de archivos `.txt` y la generación de reportes en HTML, mientras que `java.util.Random` se usa para generar los valores aleatorios del arreglo.
+Todo el proyecto vive dentro de la carpeta `Practica 2/src/practica/pkg2/`. El archivo más importante es `Practica2.java`, que es donde arranca el programa y donde se guardan las variables que todos los demás archivos necesitan usar. La ventana principal que ve el usuario está en `MenuPrincipal.java`, y esta usa JFreeChart para mostrar las barras animadas. Hay otra ventanita llamada `ArregloAlea.java` que sirve únicamente para generar números aleatorios. El archivo `Archivos.java` es el encargado de crear los reportes y el historial en formato HTML. La clase `Constructor_historial.java` solo existe para guardar los datos de cada ejecución de forma ordenada. Y por último, los tres algoritmos de ordenamiento están en su propia carpetita llamada `Algoritmos/`, cada uno en su propio archivo: `Bubble_sort.java`, `Shell_sort.java` y `Quick_sort.java`.
 
 ---
 
-## 3. Lógica General
+## 2. Librerias que se usaron
 
-La aplicación es un visualizador interactivo de algoritmos de ordenamiento. El usuario comienza ingresando datos de forma manual separados por comas, cargando un archivo `.txt`, o generando un arreglo aleatorio. A continuación, selecciona el algoritmo deseado entre Bubble Sort, Shell Sort y Quick Sort, define el orden (ascendente o descendente) y ajusta la velocidad de animación. Al presionar "Iniciar", el algoritmo se ejecuta en un hilo separado, lo que permite observar en tiempo real cómo se ordenan las barras en la gráfica sin bloquear la interfaz. Al finalizar la ejecución, se guarda automáticamente un reporte HTML con las estadísticas y se actualiza el historial.
+Para hacer la interfaz visual, o sea las ventanas, botones y todo eso, se usó **Java Swing**, que es la libreria estándar de Java para eso. Las barras animadas que muestran cómo se van ordenando los números las hace **JFreeChart**, que permite actualizar la gráfica en tiempo real con colores personalizados para cada barra.
 
-El estado compartido entre clases —arreglo de datos, colores y contadores— se gestiona mediante variables estáticas públicas definidas en `Practica2.java`.
+Para leer información del hardware de la computadora, como el procesador, la memoria RAM y la velocidad del reloj, se usó una librería llamada **OSHI**. Esta libreria a su vez necesita otras dos librerias de apoyo llamadas **JNA** y **JNA Platform** para poder acceder a esa información del sistema sin importar en qué sistema operativo estés.
+
+Para registrar errores que puedan pasar mientras los algoritmos estan corriendo, se usó **SLF4J** en su versión más simple. Y finalmente, para leer y escribir archivos en la computadora se usaron clases normales de Java como `BufferedReader` y `FileWriter`, que leen archivos `.txt` y generan los reportes en HTML. Los números aleatorios se generan con `java.util.Random`.
 
 ---
 
-## 4. Clases y Métodos Importantes
+## 3. Como funciona el programa en general
 
-### 4.1 `Practica2.java` — Estado Global y Utilidades
+El programa le muestra al usuario de forma animada cómo funcionan distintos algoritmos de ordenamiento. Primero, el usuario mete los números que quiere ordenar, ya sea escribiéndolos a mano separados por comas, cargando un archivo `.txt` desde su computadora, o pidiéndole al programa que genere números aleatorios. Después escoge qué algoritmo quiere ver en acción: puede ser Bubble Sort, Shell Sort o Quick Sort. También elige si quiere ordenarlos de menor a mayor o al revés, y qué tan rápida quiere que sea la animación.
 
-Actúa como contenedor de estado global y punto de entrada de la aplicación. Declara como variables estáticas públicas el arreglo `datos[]` (que se va modificando durante el ordenamiento), `datos_antiguo[]` (copia del arreglo original para mostrarlo en el reporte), el arreglo `colores[]` que controla el color de cada barra en la gráfica, la variable `velocidad` que determina el tiempo de pausa entre pasos, y los contadores `Comparaciones`, `Intercambios`, `Iteraciones` y `Particiones`. También almacena el tiempo total de ejecución en milisegundos en la variable `ms`.
+Cuando le da al botón de "Iniciar", el algoritmo empieza a correr en un hilo separado, lo que significa que la interfaz no se congela y el usuario puede ver en vivo cómo las barras se van moviendo y ordenando. Cuando termina, el programa guarda automáticamente un reporte en HTML con todas las estadísticas de esa ejecución y actualiza el historial.
 
-Los métodos `ActualizarComparaciones()`, `ActualizarIntercambios()` e `ActualizarIteraciones()` convierten el valor entero del contador correspondiente a texto y lo muestran directamente en el `JLabel` del panel de estadísticas en `MenuPrincipal`.
+Todas las variables que los archivos necesitan compartir, como el arreglo de números, los colores de las barras y los contadores, se guardan de forma estática en `Practica2.java` para que cualquier clase pueda acceder a ellas facilmente.
 
-El método `CargarArea()` recibe el tipo de operación (`"Comparando"` o `"Intercambio"`), el número de operación, las posiciones involucradas y los valores de ambos elementos. Con esto construye un bloque de texto que agrega al `JTextArea` del log, indicando qué operación se realizó, en qué posiciones y con qué valores.
+---
 
-El método `CargarTiempo()` recibe el tiempo de inicio y fin en nanosegundos, calcula la diferencia, la convierte a milisegundos y a segundos, y añade esa información al área de log. El valor en milisegundos también queda guardado en `Practica2.ms` para ser usado posteriormente en el reporte HTML.
+## 4. Explicacion de cada clase y sus metodos
 
-El método `CargarParticion()` cumple una función similar a `CargarArea()` pero orientado al Quick Sort: registra en el log el número de partición, el rango del subarreglo (posición inicio y fin) y los valores en esas posiciones.
+### 4.1 `Practica2.java` — Variables globales y metodos de apoyo
+
+Esta clase es como el almacén central del programa. Aqui se guardan todas las variables que las demas clases necesitan usar, como el arreglo `datos[]` que contiene los números y va cambiando conforme el algoritmo los va moviendo, `datos_antiguo[]` que guarda una copia del arreglo original antes de que se ordenara (para poder mostrarlo en el reporte), y `colores[]` que guarda el color que debe tener cada barra en la gráfica. También guarda la `velocidad` que determina qué tan rápida es la animación, los contadores de `Comparaciones`, `Intercambios`, `Iteraciones` y `Particiones`, y el tiempo que tardó el algoritmo en milisegundos en la variable `ms`.
+
+Los métodos `ActualizarComparaciones()`, `ActualizarIntercambios()` e `ActualizarIteraciones()` hacen algo muy sencillo: agarran el número del contador correspondiente, lo convierten en texto y lo muestran en la etiqueta de estadísticas de la ventana principal.
+
+El método `CargarArea()` recibe información sobre una operación que acaba de pasar, como si fue una comparación o un intercambio, en qué posiciones del arreglo ocurrió y cuáles eran los valores. Con eso arma un mensajito de texto y lo agrega al área de log de la ventana, para que el usuario pueda ver paso a paso lo que está haciendo el algoritmo.
+
+El método `CargarTiempo()` recibe el momento en que empezó y terminó el algoritmo en nanosegundos, calcula cuánto tiempo pasó, lo convierte a milisegundos y a segundos, y agrega esa información al log. El valor en milisegundos también lo guarda en `Practica2.ms` para usarlo después en el reporte.
+
+El método `CargarParticion()` es parecido a `CargarArea()` pero especificamente para el Quick Sort: registra en el log el número de partición, qué parte del arreglo se está procesando y cuáles son los valores en esas posiciones.
 
 [Captura aquí]
 
 ---
 
-### 4.2 `MenuPrincipal.java` — Ventana Principal
+### 4.2 `MenuPrincipal.java` — La ventana principal
 
-Hereda de `javax.swing.JFrame` y gestiona la interfaz gráfica completa. Su constructor inicializa los componentes visuales generados por NetBeans y crea una gráfica de barras vacía con JFreeChart usando un dataset con un valor de 0, estableciendo el fondo negro tanto del gráfico como del área de la gráfica.
+Esta clase es la ventana que el usuario ve cuando abre el programa. Hereda de `JFrame` de Java Swing. Cuando se crea, inicializa todos los botones, etiquetas y demás componentes, y muestra una gráfica de barras vacía con fondo negro usando JFreeChart.
 
-El método `crearGrafica()` genera un `DefaultCategoryDataset` vacío con un valor placeholder de 0, usado únicamente al iniciar la ventana antes de que el usuario cargue datos.
+El método `crearGrafica()` simplemente genera una gráfica vacía con un valor de cero para que haya algo que mostrar antes de que el usuario meta datos.
 
-El método estático `PonerGrafica()` es el encargado de refrescar la visualización durante la animación. Se ejecuta dentro de `SwingUtilities.invokeLater()` para garantizar que la actualización ocurra en el hilo del EDT de Swing. Elimina el contenido anterior del panel, construye un nuevo gráfico de barras con `crearGrafica2()`, le aplica un `BarRenderer` personalizado que toma el color de cada barra directamente desde `Practica2.colores[column]`, y finalmente llama a `revalidate()` y `repaint()` para que el panel se actualice visualmente.
+El método estático `PonerGrafica()` es el que hace que la gráfica se actualice durante la animación. Se asegura de ejecutarse en el hilo correcto de Swing para que no haya problemas visuales, borra la gráfica anterior, crea una nueva con los datos actuales y aplica los colores de cada barra tomándolos del arreglo `Practica2.colores[]`. Luego obliga a la pantalla a redibujar todo.
 
-El método `crearGrafica2()` recorre `Practica2.datos[]` y agrega cada valor al dataset usando su índice como categoría, lo que produce una barra por elemento del arreglo.
+El método `crearGrafica2()` recorre el arreglo de datos actual y crea una barra por cada número.
 
-El método `cargarActionPerformed()` se dispara al presionar el botón "Cargar". Toma el texto del campo `Dato`, lo divide por comas, inicializa los arreglos `datos[]` y `datos_antiguo[]` con los valores ingresados, reinicia los contadores y el área de log, inicializa todos los colores a azul, y llama a `PonerGrafica()` para mostrar el arreglo en pantalla. Si el texto está vacío o tiene un formato incorrecto, muestra un `JOptionPane` de error.
+El método `cargarActionPerformed()` se activa cuando el usuario presiona "Cargar". Toma el texto que el usuario escribió, lo divide por las comas, llena los arreglos de datos, pone todos los colores en azul y muestra la gráfica. Si el texto está vacio o mal escrito, muestra un mensajito de error.
 
-El método `jButton3ActionPerformed()` abre un `JFileChooser` configurado para seleccionar únicamente archivos `.txt`. Si el usuario selecciona un archivo válido, llama a `MostrarDatos()` con la ruta absoluta.
+El método `jButton3ActionPerformed()` abre una ventana para que el usuario busque y seleccione un archivo `.txt` desde su computadora.
 
-El método `MostrarDatos()` abre el archivo seleccionado con un `BufferedReader` y copia su contenido al campo de texto `Dato`, línea por línea, para que el usuario pueda cargarlo como si lo hubiera escrito manualmente.
+El método `MostrarDatos()` abre el archivo que el usuario seleccionó, lee su contenido línea por línea y lo pega en el campo de texto, como si el usuario lo hubiera escrito a mano.
 
-El método `jButton2ActionPerformed()` abre la ventana `ArregloAlea` para que el usuario configure un arreglo aleatorio.
+El método `jButton2ActionPerformed()` abre la ventanita de `ArregloAlea` para generar números al azar.
 
-El método `jButton4ActionPerformed()` es el más extenso y se ejecuta al presionar "Iniciar". Primero recopila información del hardware usando OSHI: sistema operativo, arquitectura, núcleos, memoria RAM total y disponible, modelo del procesador y frecuencia de reloj. Luego obtiene el algoritmo, orden y velocidad seleccionados en los comboboxes, reinicia todos los contadores, traduce la opción de velocidad seleccionada a milisegundos (500, 100 o 20), y finalmente lanza el algoritmo correspondiente en un hilo nuevo `Thread` para no bloquear la interfaz durante la animación.
+El método `jButton4ActionPerformed()` es el más largo y es el que se activa al presionar "Iniciar". Primero le pregunta a la computadora sus datos de hardware usando OSHI. Luego revisa qué algoritmo, qué orden y qué velocidad escogió el usuario, reinicia todos los contadores y lanza el algoritmo en un hilo separado para que la interfaz no se congele mientras corre.
 
-El método `historialActionPerformed()` llama a `Archivos.Historial()` para generar y abrir el archivo HTML del historial de ejecuciones.
-
-[Captura aquí]
-
----
-
-### 4.3 `Archivos.java` — Persistencia HTML
-
-Hereda de `MenuPrincipal`. Mantiene un contador estático `cont` que lleva la numeración de ejecuciones y un arreglo estático de `Constructor_historial[]` con capacidad para 100 registros.
-
-El método `ResumenEjecucion()` se invoca automáticamente al finalizar cada algoritmo. Incrementa el contador, completa los campos del perfil del sistema con el número de elementos procesados y el tiempo total de ejecución, y escribe un archivo HTML completo en disco con el nombre `EjecucionNo N.html`. El reporte incluye el algoritmo usado, el orden, el arreglo original, el arreglo ya ordenado, una tabla HTML con las comparaciones, intercambios e iteraciones realizadas, el tiempo de ejecución en milisegundos, la velocidad utilizada y el perfil del sistema. Además, recorre el arreglo `historial[]` buscando el primer espacio vacío, crea un nuevo objeto `Constructor_historial` con todos los datos de esa ejecución y lo almacena en ese índice.
-
-El método `Historial()` genera un archivo HTML llamado `Historial de ejecucion.html` que contiene una tabla con una fila por cada ejecución registrada en el arreglo `historial[]`, mostrando el número de ejecución, algoritmo, orden, tamaño del arreglo, comparaciones, intercambios, iteraciones y tiempo.
+El método `historialActionPerformed()` le dice a `Archivos.java` que genere y abra el historial en HTML.
 
 [Captura aquí]
 
 ---
 
-### 4.4 `Constructor_historial.java` — Modelo de Datos
+### 4.3 `Archivos.java` — Guarda los reportes en HTML
 
-Clase POJO (Plain Old Java Object) que encapsula los datos de cada ejecución para el historial. Cuenta con dos constructores: uno vacío y uno parametrizado que recibe los ocho campos del registro. Los atributos son `Numero` (entero), `Algoritmo`, `Orden`, `Comparaciones`, `Intercambios`, `Iteraciones` y `Tiempo` (todos String), más `Tamaño` (entero que indica cuántos elementos tenía el arreglo). Cada atributo tiene su getter y setter correspondiente. Esta clase no contiene lógica de negocio; su único propósito es transportar los datos de una ejecución hacia el reporte HTML.
+Esta clase hereda de `MenuPrincipal` y se encarga de todo lo relacionado con guardar información en archivos. Tiene un contador estático que lleva la cuenta de cuántas ejecuciones han pasado, y un arreglo con espacio para guardar hasta 100 registros de historial.
 
-[Captura aquí]
+El método `ResumenEjecucion()` se llama automaticamente cuando un algoritmo termina. Aumenta el contador, recopila toda la información de esa ejecución y escribe un archivo HTML con un nombre tipo `EjecucionNo 1.html`. Ese archivo incluye qué algoritmo se usó, el orden, cómo estaba el arreglo antes y después de ordenarse, una tabla con los contadores de operaciones, cuánto tiempo tardó, la velocidad que se usó y los datos del hardware. También guarda esa ejecución en el arreglo del historial para poder consultarla después.
 
----
-
-### 4.5 `ArregloAlea.java` — Generador de Arreglo Aleatorio
-
-Ventana auxiliar (`JFrame`) que permite al usuario definir un rango mínimo y máximo para generar un arreglo aleatorio. El método `craerActionPerformed()` valida que el mínimo no sea menor a 5 y que el máximo no supere 30. Con esos límites válidos, usa `Random.nextInt(Min, Max)` para determinar aleatoriamente el tamaño del arreglo, luego lo llena con valores enteros aleatorios entre 1 y 100. Finalmente, convierte el arreglo a una cadena de números separados por comas y la escribe directamente en el campo `Dato` de `MenuPrincipal`. Una vez hecho esto, cierra la ventana con `dispose()` para que el usuario pueda continuar desde la ventana principal.
+El método `Historial()` genera un archivo HTML llamado `Historial de ejecucion.html` que tiene una tabla con todas las ejecuciones que se han hecho, mostrando los datos más importantes de cada una.
 
 [Captura aquí]
 
 ---
 
-### 4.6 `Bubble_sort.java` — Algoritmo Bubble Sort
+### 4.4 `Constructor_historial.java` — Guarda los datos de una ejecucion
 
-Contiene dos métodos: `Bublle_sort_Ascendente()` y `Bublle_sort_Descendente()`, ambos con lógica idéntica salvo por el operador de comparación (`>` para ascendente, `<` para descendente).
-
-Cada método utiliza un bucle externo `while(paso)` controlado por una bandera booleana. Al inicio de cada iteración del `while`, `paso` se establece en `false`. Si durante el recorrido del arreglo se realiza al menos un intercambio, `paso` vuelve a `true`, lo que provoca que el `while` continúe. Si en un recorrido completo no hubo ningún intercambio, el arreglo ya está ordenado y el algoritmo termina anticipadamente sin necesidad de completar todas las pasadas posibles.
-
-Dentro del bucle `for` se comparan los elementos adyacentes `datos[i]` y `datos[i+1]`. Antes de la comparación, ambos se pintan de naranja y se registra la operación en el log y en el contador. Si se determina que hay un intercambio, ambos se pintan de rojo, se realiza el swap usando una variable auxiliar `aux`, y al terminar regresan a azul. Si no hay intercambio, simplemente regresan a azul directamente. En ambos casos se llama a `PonerGrafica()` y se pausa con `Thread.sleep()` para que la animación sea visible. Al terminar el `while`, todos los colores pasan a verde y se genera el reporte con `ResumenEjecucion()`.
+Esta clase es muy sencilla, no hace nada inteligente por sí sola. Su único trabajo es ser como una cajita donde se guardan los datos de una ejecución: el número de ejecución, el algoritmo que se usó, el orden, las comparaciones, intercambios, iteraciones, el tiempo y el tamaño del arreglo. Tiene dos constructores, uno que crea la cajita vacía y otro que la llena con todos los datos de una vez. Cada dato tiene su método para leerlo y su método para cambiarlo. Nada más.
 
 [Captura aquí]
 
 ---
 
-### 4.7 `Shell_sort.java` — Algoritmo Shell Sort
+### 4.5 `ArregloAlea.java` — Genera numeros al azar
 
-Contiene dos métodos: `Shell_sort_Ascendente()` y `Shell_sort_Descendente()`, que difieren únicamente en el operador de comparación.
-
-El algoritmo parte con un `gaps` inicial igual a `datos.length / 2`. Mientras `gaps > 0`, ejecuta un bucle interno `while(paso)` que recorre el arreglo comparando elementos separados por esa distancia (`datos[i]` con `datos[i+gaps]`). Al igual que en Bubble Sort, la bandera `paso` hace que el recorrido se repita hasta que no haya más intercambios con el gap actual. Cuando el recorrido interno termina sin intercambios, el gap se divide entre 2 y comienza una nueva fase. Este proceso continúa hasta que `gaps` llega a 0, lo que indica que el arreglo está ordenado.
-
-La animación sigue el mismo patrón de colores: naranja al comparar, rojo al intercambiar y azul al regresar al reposo. Cada operación queda registrada en el log y en los contadores. Al finalizar todos los gaps, todos los colores pasan a verde y se llama a `ResumenEjecucion()`.
+Esta es una ventanita extra que aparece cuando el usuario quiere que el programa genere los números solo. El usuario escribe un mínimo y un máximo para el tamaño del arreglo. El método `craerActionPerformed()` revisa que el mínimo no sea menor a 5 ni el máximo mayor a 30. Si los valores son válidos, decide aleatoriamente cuántos números va a generar, los llena con valores entre 1 y 100, convierte todo en una cadena de números separados por comas y la escribe directamente en el campo de texto de la ventana principal. Después cierra la ventanita y el usuario ya puede presionar "Cargar".
 
 [Captura aquí]
 
 ---
 
-### 4.8 `Quick_sort.java` — Algoritmo Quick Sort
+### 4.6 `Bubble_sort.java` — Como funciona el Bubble Sort
 
-Contiene cuatro métodos: `Quick_sort_Ascendente()`, `Quick_sort_Descendente()`, y sus funciones de partición `particionar()` y `particionar2()` respectivamente.
+Tiene dos versiones del algoritmo: una para ordenar de menor a mayor y otra para ordenar de mayor a menor. La lógica es la misma en ambas, solo cambia el signo de la comparación.
 
-Los métodos principales son recursivos y reciben el arreglo junto con los índices `inicio` y `fin` del subarreglo actual. Al ser llamados con `inicio == 0`, capturan el tiempo de inicio con `System.nanoTime()` para medir el tiempo total de ejecución. Si `inicio < fin`, incrementan los contadores de iteraciones y particiones, registran la partición en el log, y llaman a la función de partición para obtener el índice del pivote. Luego se invocan recursivamente sobre el subarreglo izquierdo (de `inicio` a `pivote - 1`) y el subarreglo derecho (de `pivote + 1` a `fin`). Cuando la llamada raíz termina (cuando `inicio == 0` y `fin == datos.length - 1`), todos los colores se ponen en verde y se genera el reporte.
+El algoritmo usa una bandera llamada `paso` que empieza en `true`. Al inicio de cada recorrido se pone en `false`. Si en algún momento se hace un intercambio, vuelve a ponerse en `true`. Si termina un recorrido completo sin ningún intercambio, significa que ya todo está ordenado y el algoritmo para sin necesidad de seguir dando más vueltas.
 
-El método `particionar()` toma como pivote el último elemento del subarreglo (`arr[fin]`) y usa dos índices: `j` recorre el subarreglo de izquierda a derecha comparando cada elemento con el pivote (pintando ambos en naranja), mientras que `i` avanza solo cuando se encuentra un elemento menor o igual al pivote. Cuando eso ocurre, se incrementa `i` y se intercambian `arr[i]` con `arr[j]`, pintándolos en rojo durante el swap. Al terminar el recorrido, el pivote se coloca en su posición final intercambiando `arr[i+1]` con `arr[fin]`, y ese elemento se pinta de verde para indicar que ya quedó en su lugar definitivo. El método devuelve `i + 1`, que es el índice donde quedó el pivote. El método `particionar2()` funciona de forma idéntica pero con la condición `arr[j] >= pivote` para ordenar de forma descendente.
+Dentro del recorrido, se comparan dos elementos que están uno al lado del otro. Antes de compararlos, ambos se pintan de naranja y se registra la operación. Si hay que intercambiarlos, se pintan de rojo, se hace el cambio y luego regresan a azul. Si no hay intercambio, simplemente regresan a azul. En ambos casos se actualiza la gráfica y se espera un momento para que la animación sea visible. Al terminar, todos se pintan de verde y se guarda el reporte.
 
 [Captura aquí]
 
 ---
 
-## 5. Patrón de Animación
+### 4.7 `Shell_sort.java` — Como funciona el Shell Sort
 
-Todos los algoritmos comparten el mismo esquema de visualización por colores. El color **azul** indica que un elemento está en estado normal o en reposo. El **naranja** señala que dos elementos están siendo comparados en ese momento. El **rojo** marca los elementos que están siendo intercambiados. Finalmente, el **verde** indica que un elemento ya se encuentra en su posición final, o bien que el arreglo ha sido ordenado por completo.
+También tiene dos versiones, una ascendente y una descendente, que solo difieren en el operador de comparación.
 
-La animación se logra modificando el arreglo `Practica2.colores[]`, llamando al método `PonerGrafica()` y pausando la ejecución con `Thread.sleep(Practica2.velocidad)`. Los algoritmos corren en hilos separados para no bloquear el EDT de Swing.
+Este algoritmo empieza comparando elementos que están muy separados en el arreglo, y poco a poco va reduciendo esa distancia hasta que al final compara elementos adyacentes como el Bubble Sort. La distancia inicial es la mitad del tamaño del arreglo. Mientras esa distancia sea mayor a cero, el algoritmo recorre el arreglo comparando elementos separados por esa distancia y los intercambia si es necesario. Repite eso hasta que en un recorrido completo no haya ningún intercambio, y entonces divide la distancia a la mitad para empezar la siguiente fase. Cuando la distancia llega a cero, el arreglo ya está ordenado.
 
+Los colores funcionan igual que en el Bubble Sort: naranja al comparar, rojo al intercambiar, azul al descansar. Al terminar todos los pasos, todo se pinta de verde y se guarda el reporte.
+
+[Captura aquí]
+
+---
+
+### 4.8 `Quick_sort.java` — Como funciona el Quick Sort
+
+Tiene cuatro métodos: dos principales que son recursivos (`Quick_sort_Ascendente()` y `Quick_sort_Descendente()`) y dos que se encargan de la particion (`particionar()` y `particionar2()`).
+
+Los métodos principales funcionan de forma recursiva, lo que significa que se llaman a sí mismos. Reciben el arreglo y las posiciones de inicio y fin del pedazo que están procesando. Si el inicio es igual a cero, guardan el tiempo de inicio para medir cuánto tarda todo. Luego llaman a la función de partición para saber dónde quedó el pivote, y después se llaman a sí mismos dos veces: una para ordenar la parte izquierda y otra para ordenar la parte derecha. Cuando la llamada inicial termina completamente, todos los colores se ponen en verde y se guarda el reporte.
+
+El método `particionar()` agarra el último elemento del pedazo como pivote y recorre todo el pedazo comparando cada elemento con ese pivote. Si un elemento es menor o igual al pivote, lo mueve a la izquierda. Al terminar el recorrido, el pivote queda en su posición final y se pinta de verde porque ya no se va a mover más. El método devuelve la posición donde quedó el pivote. `particionar2()` hace exactamente lo mismo pero para ordenar de mayor a menor.
+
+[Captura aquí]
+
+---
+
+## 5. Como se ven los colores en la animacion
+
+Todos los algoritmos usan el mismo sistema de colores para que sea fácil entender qué está pasando. El **azul** significa que una barra está quieta, sin hacer nada. El **naranja** significa que dos barras se están comparando en ese momento. El **rojo** significa que dos barras se están intercambiando de lugar. Y el **verde** significa que una barra ya llegó a su posición final y no se va a mover más, o que el arreglo ya terminó de ordenarse por completo.
+
+La animación funciona así: el algoritmo cambia los colores en el arreglo `Practica2.colores[]`, llama a `PonerGrafica()` para que la gráfica se actualice, y luego hace una pequeña pausa con `Thread.sleep()` para que el ojo humano pueda ver lo que pasó. Todo esto ocurre en un hilo separado para que la ventana del programa no se quede congelada mientras el algoritmo trabaja.
