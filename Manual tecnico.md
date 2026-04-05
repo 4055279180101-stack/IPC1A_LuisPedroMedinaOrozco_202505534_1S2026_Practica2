@@ -111,7 +111,9 @@ Esta clase es muy sencilla, no hace nada inteligente por sí sola. Su único tra
 
 Esta es una ventanita extra que aparece cuando el usuario quiere que el programa genere los números solo. El usuario escribe un mínimo y un máximo para el tamaño del arreglo. El método craerActionPerformed() revisa que el mínimo no sea menor a 5 ni el máximo mayor a 30. Si los valores son válidos, decide aleatoriamente cuántos números va a generar, los llena con valores entre 1 y 100, convierte todo en una cadena de números separados por comas y la escribe directamente en el campo de texto de la ventana principal. Después cierra la ventanita y el usuario ya puede presionar "Cargar".
 
-[Captura aquí]
+<img width="682" height="505" alt="image" src="https://github.com/user-attachments/assets/faf9619b-72cd-4192-8052-965d6c7f5bf5" />
+<img width="308" height="189" alt="image" src="https://github.com/user-attachments/assets/7ece7e7f-25b6-429d-bcf6-39c9aace867f" />
+
 
 ---
 
@@ -123,7 +125,10 @@ El algoritmo usa una bandera llamada paso que empieza en true. Al inicio de cada
 
 Dentro del recorrido, se comparan dos elementos que están uno al lado del otro. Antes de compararlos, ambos se pintan de naranja y se registra la operación. Si hay que intercambiarlos, se pintan de rojo, se hace el cambio y luego regresan a azul. Si no hay intercambio, simplemente regresan a azul. En ambos casos se actualiza la gráfica y se espera un momento para que la animación sea visible. Al terminar, todos se pintan de verde y se guarda el reporte.
 
-[Captura aquí]
+<img width="958" height="332" alt="image" src="https://github.com/user-attachments/assets/513dcdd2-f76e-44c3-9765-4fd8020b27d4" />
+<img width="893" height="491" alt="image" src="https://github.com/user-attachments/assets/e2779427-5eca-4bf4-8c0c-4b522b97d84d" />
+<img width="438" height="355" alt="image" src="https://github.com/user-attachments/assets/c03d60cd-18ab-4689-83b7-ae1bdc0448b2" />
+
 
 ---
 
@@ -135,7 +140,10 @@ Este algoritmo empieza comparando elementos que están muy separados en el arreg
 
 Los colores funcionan igual que en el Bubble Sort: naranja al comparar, rojo al intercambiar, azul al descansar. Al terminar todos los pasos, todo se pinta de verde y se guarda el reporte.
 
-[Captura aquí]
+<img width="970" height="372" alt="image" src="https://github.com/user-attachments/assets/2b100ce6-8849-4841-af3e-03637c7aea69" />
+<img width="902" height="495" alt="image" src="https://github.com/user-attachments/assets/8c1b3277-7515-4abe-8031-8698ecf7de12" />
+<img width="442" height="375" alt="image" src="https://github.com/user-attachments/assets/ae173758-6d49-435d-bdc8-98ce575397fd" />
+
 
 ---
 
@@ -147,7 +155,14 @@ Los métodos principales funcionan de forma recursiva, lo que significa que se l
 
 El método particionar() agarra el último elemento del pedazo como pivote y recorre todo el pedazo comparando cada elemento con ese pivote. Si un elemento es menor o igual al pivote, lo mueve a la izquierda. Al terminar el recorrido, el pivote queda en su posición final y se pinta de verde porque ya no se va a mover más. El método devuelve la posición donde quedó el pivote. particionar2() hace exactamente lo mismo pero para ordenar de mayor a menor.
 
-[Captura aquí]
+<img width="872" height="216" alt="image" src="https://github.com/user-attachments/assets/51be14a1-e311-4fef-afbd-21edd4602784" />
+<img width="932" height="354" alt="image" src="https://github.com/user-attachments/assets/f57e922a-39ee-49ba-a720-4413ea3248f8" />
+<img width="473" height="221" alt="image" src="https://github.com/user-attachments/assets/367022b3-4992-4a0b-8297-40dce2ddb51f" />
+
+<img width="960" height="265" alt="image" src="https://github.com/user-attachments/assets/d195ba01-1b05-451e-af57-c1b7e7e32206" />
+<img width="967" height="474" alt="image" src="https://github.com/user-attachments/assets/cf4f49e1-ca9a-4ccf-a6d3-d80d13f7b149" />
+<img width="968" height="520" alt="image" src="https://github.com/user-attachments/assets/2d0e2f68-5f11-41e3-8da8-4a924bbd7524" />
+<img width="973" height="288" alt="image" src="https://github.com/user-attachments/assets/ab31709f-fb41-407d-aa35-04b0913a112f" />
 
 ---
 
