@@ -1,8 +1,5 @@
-# Práctica 2 — Programa que muestra cómo se ordenan números
+# Práctica 2 
 
-Lenguaje: Java | IDE: Apache NetBeans | Paquete base: practica.pkg2
-
----
 
 ## 1. Como esta organizado el proyecto
 
@@ -44,7 +41,7 @@ El método CargarTiempo() recibe el momento en que empezó y terminó el algorit
 
 El método CargarParticion() es parecido a CargarArea() pero especificamente para el Quick Sort: registra en el log el número de partición, qué parte del arreglo se está procesando y cuáles son los valores en esas posiciones.
 
-[Captura]
+<img width="318" height="200" alt="VariablesStaticas" src="https://github.com/user-attachments/assets/2387c894-2924-4925-af93-35303ca489e8" />
 
 ---
 
@@ -54,17 +51,29 @@ Esta clase es la ventana que el usuario ve cuando abre el programa. Hereda de JF
 
 El método crearGrafica() simplemente genera una gráfica vacía con un valor de cero para que haya algo que mostrar antes de que el usuario meta datos.
 
+<img width="556" height="202" alt="image" src="https://github.com/user-attachments/assets/3493e1b4-2a59-4d44-ac4b-8efc14206c5d" />
+
+
 El método estático PonerGrafica() es el que hace que la gráfica se actualice durante la animación. Se asegura de ejecutarse en el hilo correcto de Swing para que no haya problemas visuales, borra la gráfica anterior, crea una nueva con los datos actuales y aplica los colores de cada barra tomándolos del arreglo Practica2.colores[]. Luego obliga a la pantalla a redibujar todo.
+
+<img width="636" height="530" alt="image" src="https://github.com/user-attachments/assets/ad2e7808-da71-48f5-998b-5113094ed8d8" />
 
 El método crearGrafica2() recorre el arreglo de datos actual y crea una barra por cada número.
 
+<img width="544" height="192" alt="image" src="https://github.com/user-attachments/assets/ac121310-5c40-4ca8-a671-4d1711f98862" />
+
 El método cargarActionPerformed() se activa cuando el usuario presiona "Cargar". Toma el texto que el usuario escribió, lo divide por las comas, llena los arreglos de datos, pone todos los colores en azul y muestra la gráfica. Si el texto está vacio o mal escrito, muestra un mensajito de error.
+
+<img width="589" height="367" alt="image" src="https://github.com/user-attachments/assets/5d6bd72c-5c5f-4a8f-bb7a-ab7e07237cd7" />
+
 
 El método jButton3ActionPerformed() abre una ventana para que el usuario busque y seleccione un archivo .txt desde su computadora.
 
 El método MostrarDatos() abre el archivo que el usuario seleccionó, lee su contenido línea por línea y lo pega en el campo de texto, como si el usuario lo hubiera escrito a mano.
 
 El método jButton2ActionPerformed() abre la ventanita de ArregloAlea para generar números al azar.
+<img width="582" height="154" alt="image" src="https://github.com/user-attachments/assets/4998dfc8-69d8-47c8-b8ce-27035b74f1c9" />
+<img width="336" height="237" alt="image" src="https://github.com/user-attachments/assets/99980b7a-91b6-4cfc-b10d-412fe10aa114" />
 
 El método jButton4ActionPerformed() es el más largo y es el que se activa al presionar "Iniciar". Primero le pregunta a la computadora sus datos de hardware usando OSHI. Luego revisa qué algoritmo, qué orden y qué velocidad escogió el usuario, reinicia todos los contadores y lanza el algoritmo en un hilo separado para que la interfaz no se congele mientras corre.
 
