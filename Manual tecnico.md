@@ -79,7 +79,8 @@ El método jButton4ActionPerformed() es el más largo y es el que se activa al p
 
 El método historialActionPerformed() le dice a Archivos.java que genere y abra el historial en HTML.
 
-[Captura aquí]
+<img width="948" height="529" alt="image" src="https://github.com/user-attachments/assets/7ca6dc96-7669-4328-b413-acf8fab40f69" />
+
 
 ---
 
@@ -88,10 +89,12 @@ El método historialActionPerformed() le dice a Archivos.java que genere y abra 
 Esta clase hereda de MenuPrincipal y se encarga de todo lo relacionado con guardar información en archivos. Tiene un contador estático que lleva la cuenta de cuántas ejecuciones han pasado, y un arreglo con espacio para guardar hasta 100 registros de historial.
 
 El método ResumenEjecucion() se llama automaticamente cuando un algoritmo termina. Aumenta el contador, recopila toda la información de esa ejecución y escribe un archivo HTML con un nombre tipo EjecucionNo 1.html. Ese archivo incluye qué algoritmo se usó, el orden, cómo estaba el arreglo antes y después de ordenarse, una tabla con los contadores de operaciones, cuánto tiempo tardó, la velocidad que se usó y los datos del hardware. También guarda esa ejecución en el arreglo del historial para poder consultarla después.
+<img width="948" height="529" alt="image" src="https://github.com/user-attachments/assets/7ca6dc96-7669-4328-b413-acf8fab40f69" />
 
 El método Historial() genera un archivo HTML llamado Historial de ejecucion.html que tiene una tabla con todas las ejecuciones que se han hecho, mostrando los datos más importantes de cada una.
 
-[Captura aquí]
+<img width="973" height="537" alt="image" src="https://github.com/user-attachments/assets/3951ca03-f89b-4542-8b1e-9a691ba939ac" />
+
 
 ---
 
@@ -99,7 +102,8 @@ El método Historial() genera un archivo HTML llamado Historial de ejecucion.htm
 
 Esta clase es muy sencilla, no hace nada inteligente por sí sola. Su único trabajo es ser como una cajita donde se guardan los datos de una ejecución: el número de ejecución, el algoritmo que se usó, el orden, las comparaciones, intercambios, iteraciones, el tiempo y el tamaño del arreglo. Tiene dos constructores, uno que crea la cajita vacía y otro que la llena con todos los datos de una vez. Cada dato tiene su método para leerlo y su método para cambiarlo. Nada más.
 
-[Captura aquí]
+<img width="993" height="507" alt="image" src="https://github.com/user-attachments/assets/54129988-19d8-4956-98d4-7bcae6d5064a" />
+
 
 ---
 
