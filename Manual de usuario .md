@@ -51,4 +51,34 @@ Luego se pondra en visualizar:
 
 <img width="558" height="291" alt="image" src="https://github.com/user-attachments/assets/61b9939b-d4b6-489f-bd15-1f2d88185853" />
 
+Abajo en contienuando en la seccion de panel de control podemos encontrar las otras opciones que nos serviran para personalizar como se comportara el programa al momento de ordenar lo que es el vector o el arreglo que hayamos puesto en el JtextField, ahora bien lo que usted eliga es conforme a usted quiera visualizar el algoritmo en el grafico.
+
+<img width="1050" height="708" alt="image" src="https://github.com/user-attachments/assets/81b6888e-9cae-4797-ab7b-d9c7cb21dbf6" />
+
+### I. Algoritmo
+Aqui podras elegir el tipo de algotimo que quieras que ordene el arreglo, ya sea Quick Sort, Shell Sort o el mas simple el cual es Bubble Sort pero todos llegan al mismo camino.
+
+<img width="324" height="56" alt="image" src="https://github.com/user-attachments/assets/c3838ce4-37bf-463c-8ecc-f8a25419b980" />
+
+
+### II. Orden
+Aqui podras poner la forma en que el algoritmo lo colocara el arreglo cuando se termino de ordenar ya se de forma Ascendente (menor a mayor) o de forma Descendente (mayor a menor).
+
+<img width="328" height="53" alt="image" src="https://github.com/user-attachments/assets/79b12c05-7e83-4be2-9af5-f865de89e6b0" />
+
+### III. Velocidad
+Aqui colocaras que tan rapido quieres de se ordene ya se que cada paso se tarde el tiempo que tu especificas lento (500ms), medio (200ms) y rapido (20ms).
+
+<img width="330" height="59" alt="image" src="https://github.com/user-attachments/assets/58c71d64-1829-461e-b99a-8215520c0a7f" />
+
+Para cuando hayas seleccionado todo a tu preferencia le daras al boton de inciar para que inicie el proceso.
+
+<img width="335" height="40" alt="image" src="https://github.com/user-attachments/assets/70b90488-14a5-4aaf-9f00-ffb54cbc8e7d" />
+
+
+
+
+
+
+
 
