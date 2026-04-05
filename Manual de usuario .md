@@ -18,7 +18,7 @@ En esta parte podra usted colocar el vector que quiera realizar de tres maneras 
 
 ### II. Aleatorio
 
-Apretamos el boton donde dice aleatorio
+Apretamos el boton donde dice aleatorio.
 <img width="326" height="248" alt="image" src="https://github.com/user-attachments/assets/691ae0cc-24e2-483f-bd3c-dc6fc41bbe8f" />
 
 Luego colocamos el rango, si pones un rango que que esta fuera del limite tendras este error:
