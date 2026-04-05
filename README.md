@@ -1,6 +1,6 @@
 # Práctica 2 — Programa que muestra cómo se ordenan números
 
-**Lenguaje:** Java | **IDE:** Apache NetBeans | **Paquete base:** `practica.pkg2`
+Lenguaje: Java | IDE: Apache NetBeans | Paquete base: `practica.pkg2`
 
 ---
 
@@ -12,11 +12,11 @@ Todo el proyecto vive dentro de la carpeta `Practica 2/src/practica/pkg2/`. El a
 
 ## 2. Librerias que se usaron
 
-Para hacer la interfaz visual, o sea las ventanas, botones y todo eso, se usó **Java Swing**, que es la libreria estándar de Java para eso. Las barras animadas que muestran cómo se van ordenando los números las hace **JFreeChart**, que permite actualizar la gráfica en tiempo real con colores personalizados para cada barra.
+Para hacer la interfaz visual, o sea las ventanas, botones y todo eso, se usó Java Swing, que es la libreria estándar de Java para eso. Las barras animadas que muestran cómo se van ordenando los números las hace JFreeChart, que permite actualizar la gráfica en tiempo real con colores personalizados para cada barra.
 
-Para leer información del hardware de la computadora, como el procesador, la memoria RAM y la velocidad del reloj, se usó una librería llamada **OSHI**. Esta libreria a su vez necesita otras dos librerias de apoyo llamadas **JNA** y **JNA Platform** para poder acceder a esa información del sistema sin importar en qué sistema operativo estés.
+Para leer información del hardware de la computadora, como el procesador, la memoria RAM y la velocidad del reloj, se usó una librería llamada OSHI. Esta libreria a su vez necesita otras dos librerias de apoyo llamadas JNA y JNA Platform para poder acceder a esa información del sistema sin importar en qué sistema operativo estés.
 
-Para registrar errores que puedan pasar mientras los algoritmos estan corriendo, se usó **SLF4J** en su versión más simple. Y finalmente, para leer y escribir archivos en la computadora se usaron clases normales de Java como `BufferedReader` y `FileWriter`, que leen archivos `.txt` y generan los reportes en HTML. Los números aleatorios se generan con `java.util.Random`.
+Para registrar errores que puedan pasar mientras los algoritmos estan corriendo, se usó SLF4J en su versión más simple. Y finalmente, para leer y escribir archivos en la computadora se usaron clases normales de Java como `BufferedReader` y `FileWriter`, que leen archivos `.txt` y generan los reportes en HTML. Los números aleatorios se generan con `java.util.Random`.
 
 ---
 
@@ -140,6 +140,6 @@ El método `particionar()` agarra el último elemento del pedazo como pivote y r
 
 ## 5. Como se ven los colores en la animacion
 
-Todos los algoritmos usan el mismo sistema de colores para que sea fácil entender qué está pasando. El **azul** significa que una barra está quieta, sin hacer nada. El **naranja** significa que dos barras se están comparando en ese momento. El **rojo** significa que dos barras se están intercambiando de lugar. Y el **verde** significa que una barra ya llegó a su posición final y no se va a mover más, o que el arreglo ya terminó de ordenarse por completo.
+Todos los algoritmos usan el mismo sistema de colores para que sea fácil entender qué está pasando. El azul significa que una barra está quieta, sin hacer nada. El naranja significa que dos barras se están comparando en ese momento. El rojo significa que dos barras se están intercambiando de lugar. Y el verde significa que una barra ya llegó a su posición final y no se va a mover más, o que el arreglo ya terminó de ordenarse por completo.
 
 La animación funciona así: el algoritmo cambia los colores en el arreglo `Practica2.colores[]`, llama a `PonerGrafica()` para que la gráfica se actualice, y luego hace una pequeña pausa con `Thread.sleep()` para que el ojo humano pueda ver lo que pasó. Todo esto ocurre en un hilo separado para que la ventana del programa no se quede congelada mientras el algoritmo trabaja.
