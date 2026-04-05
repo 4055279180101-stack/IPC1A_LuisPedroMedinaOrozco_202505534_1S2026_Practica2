@@ -75,10 +75,16 @@ Para cuando hayas seleccionado todo a tu preferencia le daras al boton de inciar
 
 <img width="335" height="40" alt="image" src="https://github.com/user-attachments/assets/70b90488-14a5-4aaf-9f00-ffb54cbc8e7d" />
 
+## 3. Visualizador
+Aqui podras ver todo el proceso que este haciendo el algoritmo azul es cuando el espacio este en reposo
 
+<img width="567" height="282" alt="image" src="https://github.com/user-attachments/assets/3f0ccd06-ec73-48b4-b96d-87ad7c3bbe78" />
 
+Cuando esta amarillo es que el arreglo se esta comparando con otro y cuando sea rojo se intercambiaran pronto 
 
+<img width="550" height="278" alt="image" src="https://github.com/user-attachments/assets/0e7ff212-1c92-4931-8d0a-9820b7b0601d" />
 
+<img width="556" height="273" alt="image" src="https://github.com/user-attachments/assets/33c42aad-8882-44a9-9a73-e039992da391" />
 
 
 
