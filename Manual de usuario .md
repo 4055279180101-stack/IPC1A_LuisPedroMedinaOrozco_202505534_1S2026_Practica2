@@ -95,7 +95,9 @@ Aqui podras ver cuantos procesos realizo o realiza el programa de esta manera po
 
 <img width="367" height="156" alt="image" src="https://github.com/user-attachments/assets/f0f60ba6-9e6f-405a-b1d5-0675c028b006" />
 
+
 <img width="402" height="144" alt="image" src="https://github.com/user-attachments/assets/441eec15-10f6-4d50-a2c8-9b2c309b8f51" />
+
 
 <img width="406" height="147" alt="image" src="https://github.com/user-attachments/assets/f82cb25a-b6f0-4b93-99d4-fe76cbf8ed4a" />
 
