@@ -43,5 +43,11 @@ Ahora lo abres y se pondra en el JtextArea:
 
 <img width="400" height="170" alt="image" src="https://github.com/user-attachments/assets/e2ac6d0f-377e-4620-88c4-69733f173b48" />
 
+Ahora presionamos en el boton cargar para que puedas ver si se pone en la parte de Visualizador, cuando presionar cargar:
+
+<img width="261" height="119" alt="image" src="https://github.com/user-attachments/assets/c38a0844-c9c4-4574-9a1b-774e2f7a7a99" />
+
+Luego se pondra en visualizar:
+<img width="558" height="291" alt="image" src="https://github.com/user-attachments/assets/61b9939b-d4b6-489f-bd15-1f2d88185853" />
 
 
