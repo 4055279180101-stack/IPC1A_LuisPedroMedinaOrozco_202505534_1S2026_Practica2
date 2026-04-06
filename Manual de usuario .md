@@ -101,6 +101,33 @@ Aqui podras ver cuantos procesos realizo o realiza el programa de esta manera po
 
 <img width="406" height="147" alt="image" src="https://github.com/user-attachments/assets/f82cb25a-b6f0-4b93-99d4-fe76cbf8ed4a" />
 
+## 5. Log de operaciones
+Aqui podras ver que hace mas profundamente el programa en el codigo, te dira que numero de celda y cuando vale ademas de señalar el tipo de operacion que se esta realizando con el numero de ese tipo que le corresponde.
 
+Al principio cuando cargues el arreglo de "arreglo cargado" señalando que ya se cargo en el sistemas.
+
+<img width="544" height="224" alt="image" src="https://github.com/user-attachments/assets/ff0c74a7-b9a8-458b-a51e-1662b2d5804f" />
+
+Cuando empieze el programa podras ver todo proceso y como este se va actualizando en cada paso, ejemplo:
+
+<img width="537" height="222" alt="image" src="https://github.com/user-attachments/assets/6a17c97e-4167-4b60-821c-d892019e77b8" />
+
+<img width="542" height="224" alt="image" src="https://github.com/user-attachments/assets/0876b9cf-1a6b-47fd-93a1-ec4022d3c4fd" />
+
+Por ultimo cuando termine el programa podras ver datos de tu computadora que serviran como guia y podras analizar el tiempo total trancurido, donde podras decir si fue mas lento por los recursos que tuvo tu pc y sacar tus conclusiones.
+
+<img width="241" height="23" alt="image" src="https://github.com/user-attachments/assets/cef3a625-1689-4f55-80d2-aee50a84e189" />
+
+<img width="544" height="224" alt="image" src="https://github.com/user-attachments/assets/97068aac-c8fe-439b-818d-de7673195862" />
+
+## 5. Resumen de operacion
+Este archivo html se crea automaticamente en la carpeta del archivo del programa aqui podras ver el perfil mismo del sistema y el numero de ejecucion del cual se trata.
+
+## 6. Historial de ejecuciones
+Aqui podras ver absolutamente todas las ejecuciones que realizaste en una tabla y con el numero de ejecucion.
+
+<img width="305" height="65" alt="image" src="https://github.com/user-attachments/assets/fd1c3b4c-1e01-4162-84f5-5591cbe6232b" />
+
+<img width="903" height="188" alt="image" src="https://github.com/user-attachments/assets/018b0ab4-871c-46b7-b64a-b756b9ef4712" />
 
 
